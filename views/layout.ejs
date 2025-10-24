@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/assets/img/favicon.png">
+
+  <title>
+    <%= title %> | Developersstreet
+  </title>
+  <meta name="description"
+    content="Developersstreet offers modern web development, SaaS, and startup solutions using the latest technologies like Laravel, Tailwind, and React.">
+  <meta name="keywords"
+    content="developersstreet, laravel, tailwind, react, html, css, bootstrap, web development, saas, software, responsive">
+  <meta name="author" content="Developersstreet Team">
+  <meta name="theme-color" content="#0f172a">
+
+  <!-- Google Fonts: Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Google Material Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <!-- Tailwind compiled (output.css) -->
+  <link rel="stylesheet" href="/css/output.css">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body class="font-montserrat bg-white text-gray-900">
+
+  <!-- Header -->
+  <%- include("partials/header") %>
+
+    <!-- Page Content -->
+    <main class="min-h-screen">
+      <%- body %>
+    </main>
+
+    <!-- Footer -->
+    <%- include("partials/footer") %>
+
+      <!-- Vendor + Template JS -->
+      <script src="/js/vendor.js"></script>
+      <script src="/js/main.js"></script>
+
+</body>
+
+</html>

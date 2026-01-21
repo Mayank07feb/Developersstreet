@@ -783,6 +783,12 @@ video {
 .h-full {
   height: 100%;
 }
+.h-\[120px\] {
+  height: 120px;
+}
+.h-\[80px\] {
+  height: 80px;
+}
 .max-h-\[90vh\] {
   max-height: 90vh;
 }
@@ -1207,6 +1213,10 @@ video {
 }
 .to-white {
   --tw-gradient-to: #fff var(--tw-gradient-to-position);
+}
+.object-contain {
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .object-cover {
   -o-object-fit: cover;

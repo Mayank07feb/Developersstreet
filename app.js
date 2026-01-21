@@ -21,7 +21,7 @@ app.locals.siteName = 'Developers Street';
 
 /* SEO middleware */
 app.use((req, res, next) => {
-  const route = req.path.replace('/', '') || 'home';
+  const route = req.path.replace(/^\/|\/$/g, '') || 'home';
   res.locals.title = seoData[route]?.title || 'Developers Street';
   res.locals.description =
     seoData[route]?.description ||
@@ -29,18 +29,20 @@ app.use((req, res, next) => {
   next();
 });
 
-/* Pages */
+/* Main Pages */
 app.get('/', (req, res) => res.render('index'));
-app.get('/services', (req, res) => res.render('services'));
-app.get('/projects', (req, res) => res.render('projects'));
-app.get('/about', (req, res) => res.render('about'));
-app.get('/contact', (req, res) => res.render('contact'));
+app.get('/services/', (req, res) => res.render('services'));
+app.get('/projects/', (req, res) => res.render('projects'));
+app.get('/about-us/', (req, res) => res.render('about'));
+app.get('/contact-us/', (req, res) => res.render('contact'));
 
-/* LEGAL PAGES */
-app.get('/privacy-policy', (req, res) => res.render('privacy'));
-app.get('/terms-and-conditions', (req, res) => res.render('terms'));
+/* Legal Pages */
+app.get('/privacy-policy/', (req, res) => res.render('privacy'));
+app.get('/terms-conditions/', (req, res) => res.render('terms'));
+app.get('/refund-policy/', (req, res) => res.render('refund'));
 
-app.post('/contact', (req, res) => {
+/* Contact Form Handler */
+app.post('/contact-us/', (req, res) => {
   const { name, email, message } = req.body;
   console.log(`Message from ${name} (${email}): ${message}`);
   res.send('Thank you for contacting Developers Street!');

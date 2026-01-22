@@ -2,57 +2,57 @@
 
 const seoData = {
   home: {
-    title: "Developers Street | Empowering Businesses with Scalable Web & Mobile Solutions",
+    title: "Developers Street | Your Success is Our Purpose",
     description:
-      "Developers Street is a trusted web and mobile app development company in India. We build scalable websites, custom software, and mobile applications that empower startups, SMEs, and enterprises to grow digitally.",
+      "Developer's Street is a platform for having your own Website, E-commerce store, Mobile App, Logo, etc. Our motto 'YOUR SUCCESS IS OUR PURPOSE'.",
   },
 
-  about: {
-    title: "About Developers Street | Building Future-Ready Digital Experiences",
+  "about-us": {
+    title: "About Us - Developers Street",
     description:
-      "Learn more about Developers Street — a digital agency dedicated to creating innovative, scalable, and user-focused web and mobile solutions. Our mission is to help businesses thrive in the digital era through creativity and technology.",
+      "Developer’s Street is a platform for web application advancement service to grow incredible dynamic web apps, custom business applications.",
   },
 
   services: {
-    title: "Our Services | Web, App Development & Digital Marketing | Developers Street",
+    title: "Services - Developers Street",
     description:
-      "Explore our comprehensive services — from custom web design and mobile app development to SEO and digital marketing. Developers Street offers end-to-end digital solutions that drive growth and performance.",
+      "Services WordPress Website Development Website Design Education Website Website for NGO Ecommerce Website Android App Development Custom Online Software Search Engine Optimization Website Speed Optimization Payment Gateway Integration Logo Design Content Writing Brochure Designing Infographic Design Landing Page Design Pamphlet Designing Poster Designing Flyer Designing.",
   },
 
   projects: {
-    title: "Our Projects | Success Stories of Developers Street",
+    title: "Projects - Developers Street",
     description:
-      "See how Developers Street has helped 70+ clients and completed 350+ projects worldwide. From web apps to enterprise software, explore our portfolio of impactful digital transformations.",
+      "Some of our best applications and websites we have developed for our valuable customers for their dream projects.",
   },
 
-  contact: {
-    title: "Contact Developers Street | Let’s Build Your Digital Future",
+  "contact-us": {
+    title: "Contact Us - Developers Street",
     description:
-      "Get in touch with Developers Street today! Whether you have a project idea, business inquiry, or need support, our team is ready to assist you with scalable web and mobile solutions.",
+      "We help businesses add value for their end users through the expertise to take care of their unique requirements.",
   },
 
   enquiry: {
-    title: "Enquiry Now | Developers Street – Your Digital Growth Partner",
+    title: "Enquiry Now – Developers Street | Start Your Dream Project",
     description:
-      "Have a project in mind? Reach out to Developers Street for expert consultation. We’re here to understand your vision and craft digital solutions that exceed expectations.",
+      "Reach out to Developers Street for professional consultation on websites, ecommerce stores, mobile apps, logos, and custom digital solutions tailored to your business needs.",
   },
 
   "privacy-policy": {
-    title: "Privacy Policy | Developers Street – Your Data, Our Responsibility",
+    title: "Privacy Policy - Developers Street",
     description:
-      "At Developers Street, your privacy matters. Learn how we collect, store, and protect your personal information with complete transparency and security compliance.",
+      "Privacy Policy for Developers Street Privacy Policy Last updated: June 24, 2023 This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You. We use Your Personal data to provide and […]",
   },
 
-  "terms-and-conditions": {
-    title: "Terms & Conditions | Developers Street – Fair, Transparent, and Reliable",
+  "terms-conditions": {
+    title: "Terms & Conditions - Developers Street",
     description:
-      "Review the terms and conditions for using Developers Street’s services. We believe in transparent, fair, and ethical business practices that protect both clients and users.",
+      "Terms and Conditions for Developers Street Terms and Conditions Last updated: June 24, 2023 Please read these terms and conditions carefully before using Our Service. Interpretation and Definitions Interpretation The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of […]",
   },
 
-  blog: {
-    title: "Our Blog | Developers Street Insights & Digital Trends",
+  "refund-policy": {
+    title: "Refund policy - Developers Street",
     description:
-      "Stay updated with the latest articles, tips, and insights from Developers Street. Explore web development trends, SEO techniques, mobile app innovations, and more.",
+      "Refund policy for Developers Street Last Updated: January 10, 2026 Thank you for choosing Developers Street. We value your business and strive to provide high-quality web development services. Because our services are digital and performance-based, we have established the following refund policy to ensure a clear understanding between our agency and our clients. 1. General […]",
   },
 
 };

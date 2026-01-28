@@ -35,6 +35,11 @@ app.get('/services/', (req, res) => res.render('services'));
 app.get('/projects/', (req, res) => res.render('projects'));
 app.get('/about-us/', (req, res) => res.render('about'));
 app.get('/contact-us/', (req, res) => res.render('contact'));
+app.get('/blog/', (req, res) => { res.render('blog'); });
+
+app.get('/blog-details/', (req, res) => {
+  res.render('blog-details'); 
+});
 
 /* Legal Pages */
 app.get('/privacy-policy/', (req, res) => res.render('privacy'));

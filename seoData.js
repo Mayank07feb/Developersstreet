@@ -31,6 +31,12 @@ const seoData = {
       "We help businesses add value for their end users through the expertise to take care of their unique requirements.",
   },
 
+  blog: {
+    title: "Blog - Developers Street | Web, App & Digital Insights",
+    description:
+      "Read the latest blogs from Developers Street on web development, mobile apps, SEO, digital marketing, UI/UX design, and business growth tips.",
+  },
+
   enquiry: {
     title: "Enquiry Now – Developers Street | Start Your Dream Project",
     description:

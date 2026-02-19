@@ -42,7 +42,7 @@
                     $(this).remove();
                 });
             }
-        }, 200); 
+        }, 200);
 
         /*----------------------------------------------------------
             03. HEADER SCROLL
@@ -329,3 +329,59 @@
         });
     });
 })(jQuery);
+
+
+
+// ===== Enquiry Modal =====
+const enquiryButtons = document.querySelectorAll('a[href="#"].bg-primary');
+const modal = document.getElementById('enquiryModal');
+const closeModal = document.getElementById('closeModal');
+
+enquiryButtons.forEach(btn => {
+    btn.addEventListener('click', e => {
+        e.preventDefault();
+        modal.classList.remove('hidden');
+    });
+});
+
+closeModal?.addEventListener('click', () => modal.classList.add('hidden'));
+
+window.addEventListener('click', e => {
+    if (e.target === modal) modal.classList.add('hidden');
+});
+
+// ===== Mobile Menu =====
+const mobileMenuTrigger = document.querySelector('.mobile-menu-trigger');
+const menuBlock = document.querySelector('.menu-block');
+const menuClose = document.querySelector('.menu-close');
+const menuOverlay = document.querySelector('.menu-overlay');
+
+function openMenu() {
+    menuBlock.classList.remove('hidden');
+    menuOverlay.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+}
+
+function closeMenu() {
+    menuBlock.classList.add('hidden');
+    menuOverlay.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+}
+
+mobileMenuTrigger?.addEventListener('click', openMenu);
+menuClose?.addEventListener('click', closeMenu);
+menuOverlay?.addEventListener('click', closeMenu);
+
+window.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeMenu();
+});
+
+// ===== ACTIVE ROUTE (handles trailing slash safely) =====
+const currentPath = window.location.pathname.replace(/\/$/, '');
+
+document.querySelectorAll('nav a[href]').forEach(link => {
+    const linkPath = link.getAttribute('href').replace(/\/$/, '');
+    if (linkPath === currentPath) {
+        link.classList.add('text-primary', 'font-semibold');
+    }
+});

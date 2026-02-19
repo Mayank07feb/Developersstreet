@@ -4,13 +4,13 @@ const seoData = {
   home: {
     title: "Developers Street | Your Success is Our Purpose",
     description:
-      "Developer's Street is a platform for having your own Website, E-commerce store, Mobile App, Logo, etc. Our motto 'YOUR SUCCESS IS OUR PURPOSE'.",
+      "Developers Street is a platform for having your own Website, E-commerce store, Mobile App, Logo, etc. Our motto 'YOUR SUCCESS IS OUR PURPOSE'.",
   },
 
   "about-us": {
     title: "About Us - Developers Street",
     description:
-      "Developer’s Street is a platform for web application advancement service to grow incredible dynamic web apps, custom business applications.",
+      "Developers Street is a platform for web application advancement service to grow incredible dynamic web apps, custom business applications.",
   },
 
   services: {

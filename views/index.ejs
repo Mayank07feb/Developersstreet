@@ -224,143 +224,149 @@
   </section> -->
 
   <!-- Countries Section -->
-<section class="mt-20 px-5 sm:px-10 md:px-16 lg:px-20 py-16 rounded-xl mb-8">
-  <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-center text-gray-900 mb-14">
-    Running Projects Across Countries
-  </h2>
-  <div id="chartdiv" class="rounded-lg overflow-hidden shadow-lg"></div>
-  <style>
-    #chartdiv {
-      width: 100%;
-      height: 600px;
-    }
-    @media (max-width: 768px) {
-      #chartdiv { height: 400px; }
-    }
-    @media (max-width: 480px) {
-      #chartdiv { height: 300px; }
-    }
-  </style>
-  <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-  <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
-  <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
-  <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
-  <script>
-    am5.ready(function () {
-      var data = [
-        { id: "US", name: "United States", value: 100 },
-        { id: "GB", name: "United Kingdom", value: 85 },
-        { id: "CN", name: "China", value: 92 },
-        { id: "IN", name: "India", value: 78 },
-        { id: "AU", name: "Australia", value: 65 },
-        { id: "CA", name: "Canada", value: 88 },
-        { id: "BR", name: "Brasil", value: 72 },
-        { id: "ZA", name: "South Africa", value: 60 }
-      ];
+  <section class="mt-20 px-5 sm:px-10 md:px-16 lg:px-20 py-16 rounded-xl mb-8">
+    <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-center text-gray-900 mb-14">
+      Running Projects Across Countries
+    </h2>
+    <div id="chartdiv" class="rounded-lg overflow-hidden shadow-lg"></div>
+    <style>
+      #chartdiv {
+        width: 100%;
+        height: 600px;
+      }
 
-      var root = am5.Root.new("chartdiv");
-      root.setThemes([am5themes_Animated.new(root)]);
+      @media (max-width: 768px) {
+        #chartdiv {
+          height: 400px;
+        }
+      }
 
-      var chart = root.container.children.push(am5map.MapChart.new(root, {
-        panX: false,
-        panY: false,
-        wheelX: "none",
-        wheelY: "none",
-        pinchZoom: false
-      }));
+      @media (max-width: 480px) {
+        #chartdiv {
+          height: 300px;
+        }
+      }
+    </style>
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+    <script>
+      am5.ready(function () {
+        var data = [
+          { id: "US", name: "United States", value: 100 },
+          { id: "GB", name: "United Kingdom", value: 85 },
+          { id: "CN", name: "China", value: 92 },
+          { id: "IN", name: "India", value: 78 },
+          { id: "AU", name: "Australia", value: 65 },
+          { id: "CA", name: "Canada", value: 88 },
+          { id: "BR", name: "Brasil", value: 72 },
+          { id: "ZA", name: "South Africa", value: 60 }
+        ];
 
-      var polygonSeries = chart.series.push(
-        am5map.MapPolygonSeries.new(root, {
-          geoJSON: am5geodata_worldLow,
-          exclude: ["AQ"]
-        })
-      );
+        var root = am5.Root.new("chartdiv");
+        root.setThemes([am5themes_Animated.new(root)]);
 
-      // 🎨 Only map base color changed
-     polygonSeries.mapPolygons.template.setAll({
-  fill: am5.color(0x30add1),   // your primary color
-  stroke: am5.color(0xffffff),
-  strokeWidth: 0.5
-});
+        var chart = root.container.children.push(am5map.MapChart.new(root, {
+          panX: false,
+          panY: false,
+          wheelX: "none",
+          wheelY: "none",
+          pinchZoom: false
+        }));
 
-polygonSeries.mapPolygons.template.states.create("hover", {
-  fill: am5.color(0x278aa7)    // primary hover
-});
-
-      var bubbleSeries = chart.series.push(
-        am5map.MapPointSeries.new(root, {
-          valueField: "value",
-          calculateAggregates: true,
-          polygonIdField: "id"
-        })
-      );
-
-      var circleTemplate = am5.Template.new({});
-
-      bubbleSeries.bullets.push(function (root, series, dataItem) {
-        var container = am5.Container.new(root, {});
-
-        var circle = container.children.push(
-          am5.Circle.new(root, {
-            radius: 20,
-            fillOpacity: 0.7,
-            fill: am5.color(0xff0000),   // original red — unchanged
-            cursorOverStyle: "pointer",
-            tooltipText: `{name}: [bold]{value}[/] projects`
-          }, circleTemplate)
-        );
-
-        var countryLabel = container.children.push(
-          am5.Label.new(root, {
-            text: "{name}",
-            paddingLeft: 5,
-            populateText: true,
-            fontWeight: "bold",
-            fontSize: 13,
-            centerY: am5.p50
+        var polygonSeries = chart.series.push(
+          am5map.MapPolygonSeries.new(root, {
+            geoJSON: am5geodata_worldLow,
+            exclude: ["AQ"]
           })
         );
 
-        circle.on("radius", function (radius) {
-          countryLabel.set("x", radius);
+        // 🎨 Only map base color changed
+        polygonSeries.mapPolygons.template.setAll({
+          fill: am5.color(0x30add1),   // your primary color
+          stroke: am5.color(0xffffff),
+          strokeWidth: 0.5
         });
 
-        return am5.Bullet.new(root, {
-          sprite: container,
-          dynamic: true
+        polygonSeries.mapPolygons.template.states.create("hover", {
+          fill: am5.color(0x278aa7)    // primary hover
         });
+
+        var bubbleSeries = chart.series.push(
+          am5map.MapPointSeries.new(root, {
+            valueField: "value",
+            calculateAggregates: true,
+            polygonIdField: "id"
+          })
+        );
+
+        var circleTemplate = am5.Template.new({});
+
+        bubbleSeries.bullets.push(function (root, series, dataItem) {
+          var container = am5.Container.new(root, {});
+
+          var circle = container.children.push(
+            am5.Circle.new(root, {
+              radius: 20,
+              fillOpacity: 0.7,
+              fill: am5.color(0xff0000),   // original red — unchanged
+              cursorOverStyle: "pointer",
+              tooltipText: `{name}: [bold]{value}[/] projects`
+            }, circleTemplate)
+          );
+
+          var countryLabel = container.children.push(
+            am5.Label.new(root, {
+              text: "{name}",
+              paddingLeft: 5,
+              populateText: true,
+              fontWeight: "bold",
+              fontSize: 13,
+              centerY: am5.p50
+            })
+          );
+
+          circle.on("radius", function (radius) {
+            countryLabel.set("x", radius);
+          });
+
+          return am5.Bullet.new(root, {
+            sprite: container,
+            dynamic: true
+          });
+        });
+
+        bubbleSeries.bullets.push(function (root, series, dataItem) {
+          return am5.Bullet.new(root, {
+            sprite: am5.Label.new(root, {
+              text: "{value}",
+              fill: am5.color(0xffffff),
+              populateText: true,
+              centerX: am5.p50,
+              centerY: am5.p50,
+              textAlign: "center"
+            }),
+            dynamic: true
+          });
+        });
+
+        bubbleSeries.set("heatRules", [
+          {
+            target: circleTemplate,
+            dataField: "value",
+            min: 10,
+            max: 50,
+            minValue: 0,
+            maxValue: 100,
+            key: "radius"
+          }
+        ]);
+
+        bubbleSeries.data.setAll(data);
       });
-
-      bubbleSeries.bullets.push(function (root, series, dataItem) {
-        return am5.Bullet.new(root, {
-          sprite: am5.Label.new(root, {
-            text: "{value}",
-            fill: am5.color(0xffffff),
-            populateText: true,
-            centerX: am5.p50,
-            centerY: am5.p50,
-            textAlign: "center"
-          }),
-          dynamic: true
-        });
-      });
-
-      bubbleSeries.set("heatRules", [
-        {
-          target: circleTemplate,
-          dataField: "value",
-          min: 10,
-          max: 50,
-          minValue: 0,
-          maxValue: 100,
-          key: "radius"
-        }
-      ]);
-
-      bubbleSeries.data.setAll(data);
-    });
-  </script>
-</section>
+    </script>
+  </section>
 
   <!-- service wrap -->
   <div class="service-wrap lg:py-24 py-12 font-montserrat bg-gray-50">

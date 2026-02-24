@@ -31,20 +31,34 @@
 
 <body class="font-montserrat bg-white text-gray-900">
 
+  <!-- ========== PAGE SCROLL PROGRESS BAR (MODERN TOUCH) ========== -->
+  <div class="fixed top-0 left-0 w-full h-1 bg-gray-200 z-50">
+    <div class="h-full bg-primary transition-all duration-300" id="scroll-progress" style="width: 0%;"></div>
+  </div>
+
   <!-- Header -->
   <%- include("partials/header") %>
 
-    <!-- Page Content -->
-    <main class="min-h-screen">
-      <%- body %>
-    </main>
+  <!-- Page Content -->
+  <main class="min-h-screen">
+    <%- body %>
+  </main>
 
-    <!-- Footer -->
-    <%- include("partials/footer") %>
+  <!-- Footer -->
+  <%- include("partials/footer") %>
 
-      <!-- Vendor + Template JS -->
-      <script src="/js/vendor.js"></script>
-      <script src="/js/main.js"></script>
+  <!-- Vendor + Template JS -->
+  <script src="/js/vendor.js"></script>
+  <script src="/js/main.js"></script>
+
+  <script>
+    window.addEventListener('scroll', function () {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('scroll-progress').style.width = scrolled + '%';
+    });
+  </script>
 
 </body>
 

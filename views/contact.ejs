@@ -208,8 +208,6 @@
     </div>
   </div>
 
-
-
   <!-- faq wrapper -->
   <div class="faq-wrap font-montserrat lg:py-24 py-12 bg-[linear-gradient(to_bottom,#f8f8f8,#fff)]">
     <div class="max-w-screen-xl mx-auto px-3 sm:px-6 md:px-8 lg:px-14">
@@ -237,7 +235,7 @@
             Here are some of the most common questions people ask us about getting in touch and support.
           </p>
           <div class="mt-6 lg:mt-auto">
-            <a href="/contact" class="inline-flex items-center justify-center gap-2 px-5 py-3 
+            <a href="/contact-us/" class="inline-flex items-center justify-center gap-2 px-5 py-3 
          bg-primary text-white text-base font-medium rounded-lg 
          hover:bg-primary/90 transition-all duration-200">
               <span>Contact Us</span>
@@ -267,8 +265,8 @@
               </button>
               <div
                 class="accordion-content px-5 pt-3 pb-4 text-gray-700 text-sm sm:text-base font-medium leading-7 hidden">
-                You can reach us anytime through our <a href="/contact" class="text-primary underline">contact
-                  form</a> or email us at <b>support@yourdomain.com</b>.
+                You can reach us anytime through our <a href="/contact-us/" class="text-primary underline">contact
+                  form</a> or email us at <b>thedevelopersstreet@gmail.com</b>.
               </div>
             </div>
 
@@ -285,8 +283,7 @@
               <div
                 class="accordion-content px-5 pt-3 pb-4 text-gray-700 text-sm sm:text-base font-medium leading-7 hidden">
                 Our support team is available <b>Monday to Friday, 9 AM – 7 PM (IST)</b>. Weekend queries will be
-                responded
-                to on the next business day.
+                responded to on the next business day.
               </div>
             </div>
 
@@ -302,8 +299,8 @@
               </button>
               <div
                 class="accordion-content px-5 pt-3 pb-4 text-gray-700 text-sm sm:text-base font-medium leading-7 hidden">
-                Yes, you can call us at <b>+91 98765 43210</b> during business hours. For faster responses, we recommend
-                using email or live chat.
+                Yes, you can call us at <b>+91 9412892908</b> during business hours. For faster responses, we recommend
+                using email.
               </div>
             </div>
 
@@ -320,8 +317,7 @@
               <div
                 class="accordion-content px-5 pt-3 pb-4 text-gray-700 text-sm sm:text-base font-medium leading-7 hidden">
                 We typically respond within <b>24 hours</b>. High-priority issues are addressed immediately by our
-                dedicated
-                team.
+                dedicated team.
               </div>
             </div>
 
@@ -338,91 +334,34 @@
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <script>
-  // CAPTCHA variables
-  let captchaAnswer = 0;
-  let captchaVerified = false;
-
-  // Generate CAPTCHA for main form
-  function generateCaptcha() {
-    const num1 = Math.floor(Math.random() * 20) + 1;
-    const num2 = Math.floor(Math.random() * 20) + 1;
-    const operations = ['+', '-', '*'];
-    const operation = operations[Math.floor(Math.random() * operations.length)];
-
-    let question = `${num1} ${operation} ${num2} = ?`;
-
-    switch (operation) {
-      case '+':
-        captchaAnswer = num1 + num2;
-        break;
-      case '-':
-        captchaAnswer = num1 - num2;
-        break;
-      case '*':
-        captchaAnswer = num1 * num2;
-        break;
-    }
-
-    document.getElementById('captchaQuestion').textContent = question;
-    document.getElementById('captchaAnswer').value = '';
-    document.getElementById('captchaStatus').textContent = '';
-    captchaVerified = false;
-  }
-
-  // Verify CAPTCHA
-  function verifyCaptcha() {
-    const userAnswer = parseInt(document.getElementById('captchaAnswer').value);
-    const statusDiv = document.getElementById('captchaStatus');
-
-    if (userAnswer === captchaAnswer) {
-      statusDiv.textContent = '✅ CAPTCHA Verified Successfully!';
-      statusDiv.className = 'mt-2 text-sm font-medium text-green-600';
-      captchaVerified = true;
-    } else {
-      statusDiv.textContent = '❌ Incorrect Answer. Please try again.';
-      statusDiv.className = 'mt-2 text-sm font-medium text-red-600';
-      captchaVerified = false;
-      document.getElementById('captchaAnswer').value = '';
-    }
-  }
-
-  // Form submission handler
-  document.getElementById('contactForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    if (!captchaVerified) {
-      alert('Please verify the CAPTCHA first before submitting the form.');
-      return;
-    }
-
-    alert('Form submitted successfully! We will get back to you soon.');
-    this.reset();
-    generateCaptcha();
-  });
-
   // Accordion functionality
-  document.querySelectorAll('.accordion-header').forEach((header) => {
-    header.addEventListener('click', () => {
-      const accordionItem = header.parentElement;
-      const content = accordionItem.querySelector('.accordion-content');
-      const icon = header.querySelector('.accordion-icon');
-
-      // Collapse all
-      document.querySelectorAll('.accordion-content').forEach((el) => {
-        if (el !== content) el.classList.add('hidden');
+  document.addEventListener('DOMContentLoaded', function() {
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    
+    accordionHeaders.forEach((header) => {
+      header.addEventListener('click', function() {
+        const accordionItem = this.parentElement;
+        const content = accordionItem.querySelector('.accordion-content');
+        const icon = this.querySelector('.accordion-icon');
+        
+        // Check if current item is already open
+        const isOpen = !content.classList.contains('hidden');
+        
+        // Close all accordion items
+        document.querySelectorAll('.accordion-content').forEach((el) => {
+          el.classList.add('hidden');
+        });
+        
+        document.querySelectorAll('.accordion-icon').forEach((iconEl) => {
+          iconEl.classList.remove('rotate-180');
+        });
+        
+        // If it wasn't open, open it now
+        if (!isOpen) {
+          content.classList.remove('hidden');
+          icon.classList.add('rotate-180');
+        }
       });
-      document.querySelectorAll('.accordion-icon').forEach((iconEl) => {
-        if (iconEl !== icon) iconEl.classList.remove('rotate-180');
-      });
-
-      // Toggle current
-      content.classList.toggle('hidden');
-      icon.classList.toggle('rotate-180');
     });
-  });
-
-  // Initialize CAPTCHA on page load
-  window.addEventListener('load', function () {
-    generateCaptcha();
   });
 </script>
